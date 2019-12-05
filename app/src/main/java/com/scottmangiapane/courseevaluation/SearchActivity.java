@@ -25,7 +25,7 @@ public class SearchActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_search);
 
-        spinner=findViewById(R.id.spinner);
+     //   spinner=findViewById(R.id.spinner);
 
         searchView=findViewById(R.id.searchView);
         // 设置搜索文本监听

@@ -1,7 +1,9 @@
 package com.scottmangiapane.courseevaluation;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.alibaba.fastjson.JSON;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,11 +27,14 @@ import android.view.Menu;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.scottmangiapane.courseevaluation.ClassData.UserModel;
 
 import cz.msebera.android.httpclient.Header;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private UserModel userModel;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -57,9 +62,27 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void setUserModel(UserModel userModel) {
+        this.userModel = userModel;
+    }
+
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String userJson=null;
+        Intent intent=getIntent();
+        userJson=intent.getStringExtra("userJson");
+        if(userJson!=null){
+            setUserModel(JSON.parseObject(userJson,UserModel.class));
+            if(getUserModel()!=null)
+                System.out.println(getUserModel().toString());
+            else
+                System.out.println("haven't login");
+        }
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
