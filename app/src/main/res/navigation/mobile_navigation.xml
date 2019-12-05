@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.scottmangiapane.courseevaluation.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_all_courses"
+        android:name="com.scottmangiapane.courseevaluation.ui.all_courses.AllCoursesFragment"
+        android:label="@string/menu_all_courses"
+        tools:layout="@layout/fragment_allcourses" />
+
+    <fragment
+        android:id="@+id/nav_my_info"
+        android:name="com.scottmangiapane.courseevaluation.ui.my_info.MyInfoFragment"
+        android:label="@string/menu_my_info"
+        tools:layout="@layout/fragment_myinfo" />
+
+
+
+    <fragment
+        android:id="@+id/nav_footprint"
+        android:name="com.scottmangiapane.courseevaluation.ui.footprint.FootprintFragment"
+        android:label="@string/menu_footprint"
+        tools:layout="@layout/fragment_footprint" />
+
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.scottmangiapane.courseevaluation.ui.contact_us.ContactFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
+
+
+</navigation>

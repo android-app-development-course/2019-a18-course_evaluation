@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="school">
+        <item>所有大学</item>
+        <item>华南师范大学</item>
+        <item>暨南大学</item>
+        <item>华南理工大学</item>
+        <item>华南农业大学</item>
+        <item>中山大学</item>
+        <item>广州大学</item>
+        <item>广东工业大学</item>
+    </string-array>
+
+    <string-array name="major">
+        <item>所有专业</item>
+        <item>哲学</item>
+        <item>经济学</item>
+        <item>法学</item>
+        <item>教育学</item>
+        <item>文学</item>
+        <item>历史学</item>
+        <item>理学</item>
+        <item>工学</item>
+        <item>农学</item>
+        <item>医学</item>
+        <item>管理学</item>
+        <item>艺术学</item>
+    </string-array>
+
+    <string-array name="score">
+        <item>5分</item>
+        <item>4分</item>
+        <item>3分</item>
+        <item>2分</item>
+        <item>1分</item>
+    </string-array>
+
+    <string-array name="inspectionWay">
+        <item>开卷考试</item>
+        <item>闭卷考试</item>
+        <item>课堂小测</item>
+        <item>提问加分</item>
+        <item>PPT展示</item>
+        <item>论文</item>
+        <item>课堂点名</item>
+        <item>其他</item>
+    </string-array>
+
+    <!--搜索课程部分-->
+
+    <string-array name="coursetype">
+        <item>专业课</item>
+        <item>公共课</item>
+        <item>公选课</item>
+        <item>非正式课</item>
+    </string-array>
+</resources>

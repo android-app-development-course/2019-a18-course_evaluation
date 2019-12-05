@@ -1,0 +1,65 @@
+<resources>
+    <!--默认部分-->
+    <string name="app_name">CourseEvaluation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!--自行加入参考项目中需要的字符串-->
+    <string name="menu_home">首页</string>
+    <string name="menu_all_courses">所有课程</string>
+    <string name="menu_my_info">我的</string>
+    <string name="menu_footprint">足迹</string>
+    <string name="menu_contact">联系我们</string>
+
+    <!--开始页面-->
+    <string name="login_now">登录</string>
+    <string name="skip">直接进入</string>
+    <string name="signed">已有账号，直接登录</string>
+
+    <!--登录页面-->
+    <string name="login_header"><u>课程点评  |</u></string>
+    <string name="login_welcome"><u>欢迎登录课程点评平台</u></string>
+    <string name="account_default">输入账号</string>
+    <string name="password_default">输入密码</string>
+    <string name="password_forgot">忘记密码?</string>
+    <string name="remember_password">记住密码</string>
+    <string name="signup_now">立即注册</string>
+    <string name="signup">注册</string>
+    <!--注册页面-->
+    <string name="school_default">院校名称</string>
+    <string name="major_default">专业名称</string>
+    <string name="nickname_default">输入昵称</string>
+
+    <!--首页-->
+    <string name="search_lesson">🔍搜索课程</string>
+    <string name="lessons_rec"><u>推荐课程</u></string>
+
+    <string name="operating_system">操作系统</string>
+    <string name="computer_network">计算机网络</string>
+    <string name="complier_theory">编译原理</string>
+    <string name="database_practice">数据库系统实践</string>
+
+
+    <!--搜索页面-->
+    <string name="course_search">课程搜索</string>
+
+    <!--我的页面-->
+    <string name="my_major">我的学校和专业</string>
+    <string name="my_name">我的昵称</string>
+    <string name="my_password">重设密码</string>
+    <string name="my_setting">设置</string>
+    <string name="my_about">关于我们</string>
+
+    <string name="coursedetail">课程详情</string>
+    <!--足迹部分-->
+    <string name="course_name">课程名称</string>
+    <string name="check_details">查看详情</string>
+    <string name="course_instructor">任课教师</string>
+    <string name="department">开设学院</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

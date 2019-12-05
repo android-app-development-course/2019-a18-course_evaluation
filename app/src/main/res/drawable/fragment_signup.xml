@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_small"
+            android:src="@drawable/cblogosplash"
+            ></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_small"
+            android:text="@string/login_header"
+            android:textColor="@color/salmon"
+            android:textSize="24sp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="@string/signup"
+            android:layout_margin="@dimen/margin_small"
+            android:textColor="@color/battleship_gray"
+            android:textSize="24sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        >
+        <TableRow>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/account"
+                ></ImageView>
+
+            <EditText
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="253dp"
+                android:layout_height="wrap_content"
+                android:text="@string/account_default"
+                android:textColor="@android:color/darker_gray" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_school_black_24dp"
+                android:layout_gravity="center"></ImageView>
+
+            <EditText
+                android:autoText="false"
+                android:text="@string/nickname_default"
+                android:textColor="@android:color/darker_gray"></EditText></TableRow>
+        <TableRow><ImageView
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_school_black_24dp"
+            android:layout_gravity="center"></ImageView>
+
+            <EditText
+                android:text="@string/school_default"
+                android:textColor="@android:color/darker_gray"></EditText></TableRow>
+        <TableRow><ImageView
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_school_black_24dp"
+            android:layout_gravity="center"></ImageView>
+
+            <EditText
+                android:text="@string/major_default"
+                android:textColor="@android:color/darker_gray"></EditText></TableRow>
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_lock_outline_black_24dp"></ImageView>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:textColor="@android:color/darker_gray" />
+        </TableRow>
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_now"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_background"
+            >
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:text="@string/signed"
+            android:textColor="@color/salmon"></TextView>
+    </LinearLayout>
+
+</LinearLayout>
