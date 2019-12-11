@@ -37,8 +37,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private int score,com_num,type,courseID;
     private String comment,dateStr,userID;//我的评论
     private String [][]commentarr;
-    private String courseJson="[{\"academy\":\"计算机学院\",\"com_num\":3,\"courseID\":1,\"detail\":\"为了学分而选的课\",\"name\":\"平面动画\",\"score\":2,\"teacher\":\"柳薇\",\"type\":0}]";
-    private String detail,name,teacher,academy,typestr;
+    private String courseJson;
     //MainActivity mainActivity;
 
     //考核方式数量
@@ -52,7 +51,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         userID=MainActivity.userID;
         //获取课程信息json
         Intent intent=getIntent();
-        courseJson=intent.getStringExtra("courseJson");
+        courseJson=intent.getStringExtra("coursejson");
         if(courseJson!=null) {
             //parseJSONWithJSONObject(courseJson);
             coursedetailJSONObject(courseJson);
@@ -354,7 +353,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private void coursedetailJSONObject(String JsonData) {
         try {
             JSONObject jsonObject = new JSONObject(JsonData);
-            this.name = jsonObject.getString("comment");
+            this.name = jsonObject.getString("name");
             this.detail = jsonObject.getString("detail");
             this.teacher = jsonObject.getString("teacher");
             this.academy=jsonObject.getString("academy");
