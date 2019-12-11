@@ -38,6 +38,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private String comment,dateStr,userID;//我的评论
     private String [][]commentarr;
     private String courseJson;
+    private String detail,name,teacher,academy,typestr;
     //MainActivity mainActivity;
 
     //考核方式数量
