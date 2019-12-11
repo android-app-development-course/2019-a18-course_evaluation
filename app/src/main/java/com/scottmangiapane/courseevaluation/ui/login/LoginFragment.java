@@ -26,7 +26,7 @@ import com.scottmangiapane.courseevaluation.AsyncUtil;
 import com.scottmangiapane.courseevaluation.ClassData.UserModel;
 import com.scottmangiapane.courseevaluation.LoginActivity;
 import com.scottmangiapane.courseevaluation.MainActivity;
-import com.scottmangiapane.courseevaluation.MyDialog;
+import com.scottmangiapane.courseevaluation.ui.MyDialog;
 import com.scottmangiapane.courseevaluation.R;
 import com.scottmangiapane.courseevaluation.ui.signup.SignupFragment;
 

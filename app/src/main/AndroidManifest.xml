@@ -38,7 +38,12 @@
             android:label="@string/my_password"/>
         <activity
             android:name=".CourseDetailActivity"
-            android:label="@string/coursedetail"/>
+            android:label="@string/coursedetail"
+            android:parentActivityName=".MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.scottmangiapane.courseevaluation.MainActivity"/>
+            </activity>
         <activity
             android:name=".SearchActivity"
             android:label="@string/course_search"/>

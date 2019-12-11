@@ -16,7 +16,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.scottmangiapane.courseevaluation.AsyncUtil;
 import com.scottmangiapane.courseevaluation.MainActivity;
-import com.scottmangiapane.courseevaluation.MyDialog;
+import com.scottmangiapane.courseevaluation.ui.MyDialog;
 import com.scottmangiapane.courseevaluation.R;
 import com.scottmangiapane.courseevaluation.ui.login.LoginFragment;
 

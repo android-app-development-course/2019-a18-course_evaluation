@@ -62,6 +62,12 @@ public class CourseCommentList extends LinearLayout implements View.OnClickListe
                 iv_head.setImageResource(R.drawable.img_myhead3);
             case 4:
                 iv_head.setImageResource(R.drawable.img_myhead4);
+            case 5:
+                iv_head.setImageResource(R.drawable.img_myhead5);
+            case 6:
+                iv_head.setImageResource(R.drawable.img_myhead6);
+            case 7:
+                iv_head.setImageResource(R.drawable.img_myhead7);
         }
         tv_myscore.setText(myscore);
         tv_mycomment.setText(mycomment);

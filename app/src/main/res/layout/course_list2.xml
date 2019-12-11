@@ -81,7 +81,7 @@
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="12sp"
-            android:text="计算机网络基础"
+            android:text=""
             app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
             app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
             app:layout_constraintTop_toBottomOf="@+id/courseTitle" />

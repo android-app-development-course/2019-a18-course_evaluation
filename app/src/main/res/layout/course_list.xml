@@ -81,7 +81,7 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
-                android:text="操作系统基本原理与拓展"
+                android:text=""
                 app:layout_constraintEnd_toEndOf="@+id/relativeLayout2"
                 app:layout_constraintStart_toStartOf="@+id/relativeLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
@@ -248,7 +248,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/courseRunDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/courseRunDescription"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/trialTv"

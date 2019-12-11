@@ -12,33 +12,61 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import androidx.appcompat.app.AppCompatActivity;
+import cz.msebera.android.httpclient.Header;
 
 public class CourseDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");// HH:mm:ss
     private LinearLayout ll_courseCommentList;
-    private CourseCommentList courseCommentList;
+    private CourseCommentList []courseCommentList;
     private TextView tv_courseName, tv_courseType, tv_teachername, tv_coursescore, tv_summarize;
-    private Button btn_opentest, btn_opentest1, btn_closetest, btn_closetest1, btn_smalltest, btn_smalltest1;
-    private Button btn_questionpoints, btn_questionpoints1, btn_presentation, btn_presentation1, btn_paper, btn_paper1;
-    private Button btn_signin, btn_signin1, btn_others, btn_others1;
+    private Button btn_opentest, btn_opentest1, btn_closetest, btn_closetest1, btn_smalltest, btn_smalltest1,btn_signin, btn_signin1;
+    private Button btn_questionpoints, btn_questionpoints1, btn_presentation, btn_presentation1, btn_paper, btn_paper1,btn_others, btn_others1;
+    private Button btn_comment, btn_collect;
     private EditText et_mycomment;
     private Spinner sp_myscore;
-    private Button btn_comment, btn_collect;
     private RatingBar rb_coursescore;
-    private int num;
-    private boolean flag = false;
-    private String score, comment;
+    private int score,com_num,type,courseID;
+    private String comment,dateStr,userID;//我的评论
+    private String [][]commentarr;
+    private String courseJson="[{\"academy\":\"计算机学院\",\"com_num\":3,\"courseID\":1,\"detail\":\"为了学分而选的课\",\"name\":\"平面动画\",\"score\":2,\"teacher\":\"柳薇\",\"type\":0}]";
+    private String detail,name,teacher,academy,typestr;
+    //MainActivity mainActivity;
+
+    //考核方式数量
+    private int closet=0,opent=0,other=0,paper=0,ppt=0,ques=0,sign=0,smallt=0;//总的
+    private int mycloset=0,myopent=0,myother=0,mypaper=0,myppt=0,myques=0,mysign=0,mysmallt=0;//我的
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_coursedetail);
+        userID=MainActivity.userID;
+        //获取课程信息json
+        Intent intent=getIntent();
+        courseJson=intent.getStringExtra("courseJson");
+        if(courseJson!=null) {
+            //parseJSONWithJSONObject(courseJson);
+            coursedetailJSONObject(courseJson);
+        }
+        else{
+            System.out.println("error");
+        }
+
+        courseCommentList=new CourseCommentList[com_num];
+        commentarr = new String [ com_num ][ ];
+        for(int i=0;i<com_num;i++){
+            commentarr[i]=new String [4];
+        }
+
         initView();
         initEvent();
         initData();
@@ -89,18 +117,62 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
         //评论
         ll_courseCommentList=(LinearLayout)findViewById(R.id.ll_courseCommentList);
-        courseCommentList=new CourseCommentList(this);//这里传this
-        courseCommentList.setData(1,"4分","老师人很好","2019-11-11","听见下雨的声音");
+
+        //获取评论列表
+        RequestParams requestParams=new RequestParams();
+        requestParams.add("courseID",courseID+"");
+        AsyncUtil.post("/coursecomment", requestParams ,new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String jsonString=new String(responseBody, StandardCharsets.UTF_8);
+                //解析并加载进列表中
+                parseJSONWithJSONObject(jsonString);
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println("error");
+                Log.e("e",error.toString());
+            }
+        });
+
+        for(int i=0;i<com_num;i++) {
+            courseCommentList[i] = new CourseCommentList(this);//这里传this
+        }
     }
 
     private void initEvent() {
-        tv_courseName.setText("编译原理");
-        tv_courseType.setText("理学");
-        tv_teachername.setText("王欣明");
-        tv_coursescore.setText("3.5分");
-        rb_coursescore.setRating((float) 3.5);
-        tv_summarize.setText("讲授操作系统基本原理与拓展，让同学深入了解操作系统的工作过程");
+        tv_courseName.setText(name);
+        tv_courseType.setText(typestr);
+        tv_teachername.setText(teacher);
+        tv_coursescore.setText(score+"分");
+        rb_coursescore.setRating((float) score);
+        tv_summarize.setText(detail);
         btn_collect.setOnClickListener(CourseDetailActivity.this);
+
+        RequestParams requestParams=new RequestParams();
+        requestParams.add("courseID",courseID+"");
+
+        AsyncUtil.post("/courseexam", requestParams ,new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String jsonString=new String(responseBody, StandardCharsets.UTF_8);
+                courseexamJSONObject(jsonString);
+                System.out.println(jsonString);
+                btn_closetest.setText(closet+"");
+                btn_smalltest.setText(smallt+"");
+                btn_questionpoints.setText(ques+"");
+                btn_presentation.setText(ppt+"");
+                btn_paper.setText(paper+"");
+                btn_signin.setText(sign+"");
+                btn_opentest.setText(opent+"");
+                btn_others.setText(other+"");
+            }
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println(error.toString());
+            }
+        });
+
         btn_closetest.setOnClickListener(CourseDetailActivity.this);
         btn_closetest1.setOnClickListener(CourseDetailActivity.this);
         btn_smalltest.setOnClickListener(CourseDetailActivity.this);
@@ -121,7 +193,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         sp_myscore.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                score = getResources().getStringArray(R.array.score)[pos].toString();
+                score = pos;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -132,61 +204,95 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
     //加载评论
     private void initData() {
-        ll_courseCommentList.addView(courseCommentList);
+        for(int i=0;i<com_num;i++) {
+            ll_courseCommentList.addView(courseCommentList[i]);
+        }
     }
 
     @Override
     public void onClick(View view) {
+        RequestParams rp=new RequestParams();
         switch (view.getId()) {
             case R.id.btn_collect:
                 Toast toast = Toast.makeText(getApplicationContext(), "收藏成功", Toast.LENGTH_LONG);
                 toast.show();
+                rp.put("userID",userID);
+                rp.put("courseID",courseID);
+
+                AsyncUtil.get("/collectcourse", rp, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        String jsonString=new String(responseBody, StandardCharsets.UTF_8);
+                        System.out.println("scuess");
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.e("error",error.toString());
+                    }
+                });
                 break;
             case R.id.btn_opentest:
             case R.id.btn_opentest1:
-                btn_opentest.setText("100");
+                opent+=1;
+                myopent=1;
+                btn_opentest.setText(opent+"");
                 btn_opentest.setEnabled(false);
                 btn_opentest1.setEnabled(false);
                 break;
             case R.id.btn_closetest:
             case R.id.btn_closetest1:
-                btn_closetest.setText("100");
+                closet+=1;
+                mycloset=1;
+                btn_closetest.setText(closet+"");
                 btn_closetest.setEnabled(false);
                 btn_closetest1.setEnabled(false);
                 break;
             case R.id.btn_smalltest:
             case R.id.btn_smalltest1:
-                btn_smalltest.setText("100");
+                smallt+=1;
+                mysmallt=1;
+                btn_smalltest.setText(smallt+"");
                 btn_smalltest.setEnabled(false);
                 btn_smalltest1.setEnabled(false);
                 break;
             case R.id.btn_questionpoints:
             case R.id.btn_questionpoints1:
-                btn_questionpoints.setText("100");
+                ques+=1;
+                myques=1;
+                btn_questionpoints.setText(ques+"");
                 btn_questionpoints.setEnabled(false);
                 btn_questionpoints1.setEnabled(false);
                 break;
             case R.id.btn_presentation:
             case R.id.btn_presentation1:
-                btn_presentation.setText("100");
+                ppt+=1;
+                myppt=1;
+                btn_presentation.setText(ppt+"");
                 btn_presentation.setEnabled(false);
                 btn_presentation1.setEnabled(false);
                 break;
             case R.id.btn_paper:
             case R.id.btn_paper1:
-                btn_paper.setText("100");
+                paper+=1;
+                mypaper=1;
+                btn_paper.setText(paper+"");
                 btn_paper.setEnabled(false);
                 btn_paper1.setEnabled(false);
                 break;
             case R.id.btn_signin:
             case R.id.btn_signin1:
-                btn_signin.setText("100");
+                sign+=1;
+                mysign=1;
+                btn_signin.setText(sign+"");
                 btn_signin.setEnabled(false);
                 btn_signin1.setEnabled(false);
                 break;
             case R.id.btn_others:
             case R.id.btn_others1:
-                btn_others.setText("100");
+                other+=1;
+                myother=1;
+                btn_others.setText(other+"");
                 btn_others.setEnabled(false);
                 btn_others1.setEnabled(false);
                 break;
@@ -194,9 +300,92 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 comment = et_mycomment.getText().toString();
                 Date date = new Date();
                 date.getTime();
-                String dateStr = sdf.format(date);
-                //tv_commentdate.setText(dateStr);
+                dateStr = sdf.format(date);
+                System.out.println("Score:"+score+"+Comment:"+comment+"+Date:"+dateStr);
+                rp=new RequestParams();
+                rp.put("userID",userID);
+                rp.put("courseID",courseID);
+                rp.put("score",score);
+                rp.put("date",dateStr);
+                rp.put("comment",comment);
+                rp.put("opent",myopent);
+                rp.put("closet",mycloset);
+                rp.put("smallt",mysmallt);
+                rp.put("ques",myques);
+                rp.put("ppt",myppt);
+                rp.put("paper",mypaper);
+                rp.put("sign",mysign);
+                rp.put("other",myother);
+                AsyncUtil.get("/addcomment", rp, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        String jsonString=new String(responseBody, StandardCharsets.UTF_8);
+                        System.out.println("success");
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.e("error",error.toString());
+                    }
+                });
                 break;
         }
     }
+
+    private void courseexamJSONObject(String JsonData) {
+        try {
+            JSONObject jsonObject = new JSONObject(JsonData);
+            this.courseID = Integer.parseInt(jsonObject.getString("courseID"));
+            this.closet = Integer.parseInt(jsonObject.getString("closet"));
+            this.opent = Integer.parseInt(jsonObject.getString("opent"));
+            this.other = Integer.parseInt(jsonObject.getString("other"));
+            this.paper  = Integer.parseInt(jsonObject.getString("paper"));
+            this.ppt  = Integer.parseInt(jsonObject.getString("ppt"));
+            this.ques  = Integer.parseInt(jsonObject.getString("ques"));
+            this.sign  = Integer.parseInt(jsonObject.getString("sign"));
+            this.smallt  = Integer.parseInt(jsonObject.getString("smallt"));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private void coursedetailJSONObject(String JsonData) {
+        try {
+            JSONObject jsonObject = new JSONObject(JsonData);
+            this.name = jsonObject.getString("comment");
+            this.detail = jsonObject.getString("detail");
+            this.teacher = jsonObject.getString("teacher");
+            this.academy=jsonObject.getString("academy");
+            this.courseID=Integer.parseInt(jsonObject.getString("courseID"));
+            this.com_num = Integer.parseInt(jsonObject.getString("com_num"));
+            this.score  = Integer.parseInt(jsonObject.getString("score"));
+            this.type  = Integer.parseInt(jsonObject.getString("type"));
+            typestr =this.getResources().getStringArray(R.array.major)[type];
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseJSONWithJSONObject(String JsonData) {
+        try {
+            JSONArray jsonArray=new JSONArray(JsonData);
+            for (int i=0; i < jsonArray.length(); i++)    {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                commentarr[i][0]= jsonObject.getString("comment");
+                commentarr[i][1]= jsonObject.getString("date");
+                commentarr[i][2]= jsonObject.getString("nickname");
+                commentarr[i][3]= jsonObject.getString("score");
+                courseCommentList[i].setData(i, commentarr[i][3]+"分", commentarr[i][0], commentarr[i][1], commentarr[i][2]);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
 }

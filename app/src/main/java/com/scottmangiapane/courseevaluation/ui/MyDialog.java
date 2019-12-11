@@ -1,4 +1,4 @@
-package com.scottmangiapane.courseevaluation;
+package com.scottmangiapane.courseevaluation.ui;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+
+import com.scottmangiapane.courseevaluation.R;
 
 public class MyDialog extends Dialog {
     private TextView Title;

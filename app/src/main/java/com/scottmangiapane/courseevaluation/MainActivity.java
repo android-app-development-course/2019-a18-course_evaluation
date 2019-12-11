@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar;
 import android.util.Log;
 import android.view.View;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -28,6 +29,7 @@ import android.view.Menu;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.scottmangiapane.courseevaluation.ClassData.UserModel;
+import com.scottmangiapane.courseevaluation.ui.my_info.MyInfoFragment;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -36,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
 
     private UserModel userModel;
 
+    /**==============zpp============**/
+    public static String userID="";
+
     private AppBarConfiguration mAppBarConfiguration;
+
 
     //http 网络请求
     String url="https://scnu-zjxw.cn";
@@ -80,9 +86,19 @@ public class MainActivity extends AppCompatActivity {
             setUserModel(JSON.parseObject(userJson,UserModel.class));
             if(getUserModel()!=null)
                 System.out.println(getUserModel().toString());
-            else
+            else {
                 System.out.println("haven't login");
+            }
+            //userid fragment 处理
+            userID=userModel.getUserID();
+            getUserid();
+
+            /**==============zpp============**/
+            getPassword();
+            getNickname();
+            /**==============zpp============**/
         }
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -133,7 +149,42 @@ public class MainActivity extends AppCompatActivity {
         */
 
     }
+    //两个fragment获取user id
+    public String getUserid()
+    {
 
+        if(userModel!=null) {
+            return userModel.getUserID();
+        }
+        else
+        {
+            return null;}
+    }
+
+    /**==============zpp============**/
+    public String getPassword()
+    {
+
+        if(userModel!=null) {
+            return userModel.getPassword();
+        }
+        else
+        {
+            return null;}
+    }
+
+    public String getNickname()
+    {
+
+        if(userModel!=null) {
+            return userModel.getNickname();
+        }
+        else
+        {
+            return null;}
+    }
+
+    /**==============zpp============**/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
