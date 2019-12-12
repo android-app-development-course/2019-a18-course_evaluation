@@ -125,28 +125,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-        //http 网络请求
-        /*
-        String url="https://scnu-zjxw.cn";
 
-        //发送一个简单的GET请求
-        AsyncHttpClient client = new AsyncHttpClient();
-        //调用其get方法，参数1 URL
-        client.get(url, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                //200 OK
-                String info = new String(responseBody);
-                System.out.println(info);
-                Log.e("connect info:","connect successfully!");
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                System.out.println("error:" + new String(responseBody));
-            }
-        });
-        */
 
     }
     //两个fragment获取user id

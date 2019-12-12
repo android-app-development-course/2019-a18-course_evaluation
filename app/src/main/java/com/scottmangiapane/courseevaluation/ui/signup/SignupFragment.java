@@ -16,7 +16,6 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.scottmangiapane.courseevaluation.AsyncUtil;
 import com.scottmangiapane.courseevaluation.MainActivity;
-import com.scottmangiapane.courseevaluation.ui.MyDialog;
 import com.scottmangiapane.courseevaluation.R;
 import com.scottmangiapane.courseevaluation.ui.login.LoginFragment;
 
@@ -78,9 +77,7 @@ public class SignupFragment extends Fragment {
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                        MyDialog mydialog=new MyDialog(getContext(),R.style.AccountDialog);
-                        mydialog.setTitle("Sign up fail");
-                        mydialog.setContent("Check your web connect");
+
                     }
                 });
             }

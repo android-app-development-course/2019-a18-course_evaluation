@@ -9,15 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Spinner
-            android:id="@+id/schoolspinner"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:entries="@array/coursetype"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.2"
-            android:spinnerMode="dropdown" />
+        android:orientation="horizontal"
+        >
         <SearchView
             android:id="@+id/searchView"
             android:layout_width="300dp"
@@ -29,56 +22,49 @@
         </SearchView>
 
     </LinearLayout>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/progressCard"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:visibility="visible"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp">
+        android:orientation="horizontal">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/zykBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="1dp">
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/course_list"/>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            android:layout_weight="1"
+            android:text="专业课" />
 
+        <Button
+            android:id="@+id/ggkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公共课" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/progressCard2"
+        <Button
+            android:id="@+id/gxkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="公选课" />
+
+        <Button
+            android:id="@+id/fzskBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="非正式课" />
+
+    </LinearLayout>
+
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:visibility="visible"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="0dp">
-            <include
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                layout="@layout/course_list2" />
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+        android:dividerHeight="5dp"
+        android:divider="#00000000"
+        android:id="@+id/list_view"
+        >
+    </ListView>
 
 </LinearLayout>

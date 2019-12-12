@@ -49,4 +49,11 @@ dependencies {
     //datalist refresh view
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'  //1.0.5及以前版本的老用户升级需谨慎，API改动过大
     implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'  //没有使用特殊Header，可以不加这行
+
+    //西红柿追加开始
+    //implementation files('libs/fastjson-1.1.70.android.jar')
+    implementation 'com.squareup.okhttp:okhttp:2.0.0'
+    implementation 'com.lzy.net:okhttputils:+'
+    implementation 'com.lzy.net:okhttpserver:+'
+    //西红柿追加结束
 }

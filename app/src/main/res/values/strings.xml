@@ -21,8 +21,8 @@
     <string name="signed">已有账号，直接登录</string>
 
     <!--登录页面-->
-    <string name="login_header"><u>课程点评  |</u></string>
-    <string name="login_welcome"><u>欢迎登录课程点评平台</u></string>
+    <string name="login_header">课程点评  |</string>
+    <string name="login_welcome">欢迎登录</string>
     <string name="account_default">输入账号</string>
     <string name="password_default">输入密码</string>
     <string name="password_forgot">忘记密码?</string>
@@ -36,7 +36,7 @@
 
     <!--首页-->
     <string name="search_lesson">🔍搜索课程</string>
-    <string name="lessons_rec"><u>推荐课程</u></string>
+    <string name="lessons_rec">推荐课程</string>
 
     <string name="operating_system">操作系统</string>
     <string name="computer_network">计算机网络</string>
