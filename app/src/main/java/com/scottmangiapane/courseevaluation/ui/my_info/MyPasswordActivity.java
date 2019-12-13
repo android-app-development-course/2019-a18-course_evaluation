@@ -97,7 +97,8 @@ public class MyPasswordActivity extends AppCompatActivity implements View.OnClic
                 });
             }
 
-            Toast toast = Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+            toast.setText(str);
             toast.setGravity(Gravity.CENTER, 0, 0);
             LinearLayout toastView = (LinearLayout) toast.getView();//获得toast的布局
             TextView messageTextView = (TextView) toastView.getChildAt(0);
@@ -108,7 +109,9 @@ public class MyPasswordActivity extends AppCompatActivity implements View.OnClic
             toast.show();
         }
         if(view.getId()==R.id.btn_forget){
-            Toast.makeText(this,"目前还没有相关信息哦~", Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+            toast.setText("目前还没有相关设置哦~");
+            toast.show();
         }
     }
 

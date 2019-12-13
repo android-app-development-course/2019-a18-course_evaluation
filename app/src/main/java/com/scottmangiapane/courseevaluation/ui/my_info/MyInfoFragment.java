@@ -38,19 +38,17 @@ public class MyInfoFragment extends Fragment {
     private TextView tv_username;//用户昵称
     private ImageView iv_head;//用户头像
     private String nickname, password, userID;
-    private int nullflag = 0;//用于判断是否有登录，没有登录为0
+    private int nullflag = 0, imageID;//用于判断是否有登录，没有登录为0
     MainActivity mainActivity;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewContent = inflater.inflate(R.layout.fragment_myinfo, container, false);
         mainActivity = (MainActivity) getActivity();
         userID = mainActivity.getUserid();
-
-        System.out.println("从个人信息获取mainactivity的userid");
-
         if (userID != null) {
             password = mainActivity.getPassword();
             nickname = mainActivity.getNickname();
+            imageID = mainActivity.getImageID();
             nullflag = 1;
         } else {
             nickname = "登录后设置昵称~";
@@ -75,7 +73,7 @@ public class MyInfoFragment extends Fragment {
 
     public void initEvent(View viewContent) {
         tv_username.setText(nickname);
-        chooseHead(viewContent);
+        chooseHead(viewContent,imageID);
         btn_mymajor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +105,7 @@ public class MyInfoFragment extends Fragment {
             public void onClick(View v) {
                 if (nullflag == 0) {
                     Toast.makeText(getActivity(), "请先登录~", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     RequestParams requestParams = new RequestParams();
                     requestParams.add("UserID", userID);
                     requestParams.add("password", password);
@@ -133,7 +131,7 @@ public class MyInfoFragment extends Fragment {
             public void onClick(View v) {
                 if (nullflag == 0) {
                     Toast.makeText(getActivity(), "请先登录~", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     RequestParams requestParams = new RequestParams();
                     requestParams.add("UserID", userID);
                     requestParams.add("password", password);
@@ -168,8 +166,8 @@ public class MyInfoFragment extends Fragment {
         });
     }
 
-    private void chooseHead(View viewContent) {
-        int ran = (int) (Math.random() * 6 + 1);
+    private void chooseHead(View viewContent,int imageID) {
+        int ran = imageID%7+1;
         if (ran == 1) {
             iv_head.setImageResource(R.drawable.img_myhead1);
         }

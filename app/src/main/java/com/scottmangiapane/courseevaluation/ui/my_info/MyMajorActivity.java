@@ -81,7 +81,7 @@ public class MyMajorActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 //score = getResources().getStringArray(R.array.score)[pos].toString();
-               mID=pos;
+                mID=pos;
             }
 
             @Override
@@ -99,7 +99,8 @@ public class MyMajorActivity extends AppCompatActivity implements View.OnClickLi
             sp_myschool.setSelection(myschoolpos, true);
             sp_mymajor.setSelection(mymajorpos, true);
             //Toast.makeText(getApplicationContext(),"修改成功",Toast.LENGTH_LONG).show();
-            Toast toast = Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+            toast.setText("修改成功");
             toast.setGravity(Gravity.CENTER, 0, 0);
             ImageView imageView = new ImageView(getApplicationContext());
             imageView.setImageResource(R.drawable.check_circle_fill);

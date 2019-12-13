@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     /**==============zpp============**/
     public static String userID="";
     public static String nickname="";
+    public static int imageID;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -94,11 +95,13 @@ public class MainActivity extends AppCompatActivity {
             //userid fragment 处理
             userID=userModel.getUserID();
             nickname=userModel.getNickname();
+            imageID=userModel.getImageID();
             getUserid();
 
             /**==============zpp============**/
             getPassword();
             getNickname();
+            getImageID();
             /**==============zpp============**/
         }
 
@@ -149,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
 
     /****************HJY*********************************/
 
+
+
     /**==============zpp============**/
     public String getPassword()
     {
@@ -170,6 +175,17 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             return null;}
+    }
+
+    public int getImageID()
+    {
+
+        if(userModel!=null) {
+            return userModel.getImageID();
+        }
+        else
+        {
+            return 0;}
     }
 
     /**==============zpp============**/

@@ -11,13 +11,17 @@ public class UserModel {
     private String nickname;
     private int schoolID;
     private int majorID;
+    /**==============zpp============**/
+    private int imageID;
 
-    public UserModel(String userID, String password, String nickname, int schoolID, int majorID) {
+    public UserModel(String userID, String password, String nickname, int schoolID, int majorID,int imageID) {
         this.userID = userID;
         this.password = password;
         this.nickname = nickname;
         this.schoolID = schoolID;
         this.majorID = majorID;
+        /**==============zpp============**/
+        this.imageID=imageID;
     }
 
     public UserModel(String userID, String password) {
@@ -67,6 +71,17 @@ public class UserModel {
     public void setUserID(String userID) {
         this.userID = userID;
     }
+
+
+    /**==============zpp============**/
+    public int getImageID() {
+        return imageID;
+    }
+
+    public void setImageID(int imageID) {
+        this.imageID = imageID;
+    }
+    /**==============zpp============**/
 
     @NonNull
     @Override

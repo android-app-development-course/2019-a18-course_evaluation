@@ -57,7 +57,8 @@ public class MyNameActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if(view.getId()==R.id.btn_sure){
             nickname=et_username.getText().toString();
-            Toast toast = Toast.makeText(getApplicationContext(), "修改成功", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+            toast.setText("修改成功");
             toast.setGravity(Gravity.CENTER, 0, 0);
             ImageView imageView = new ImageView(getApplicationContext());
             imageView.setImageResource(R.drawable.check_circle_fill);
@@ -68,7 +69,7 @@ public class MyNameActivity extends AppCompatActivity implements View.OnClickLis
             toastView.setOrientation(LinearLayout.VERTICAL);//横向布局
             toastView.addView(imageView, 0);//将ImageView在加入到此布局中的第一个位置
             toast.show();
-
+            MainActivity.nickname=nickname;
             RequestParams rp=new RequestParams();
             rp.put("userID",userID);
             rp.put("nickname",nickname);

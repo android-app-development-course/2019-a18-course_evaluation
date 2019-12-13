@@ -40,7 +40,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private EditText et_mycomment;
     private Spinner sp_myscore;
     private RatingBar rb_coursescore;
-    private int score,com_num,type,courseID;
+    private int score,com_num,type,courseID,imageID;
     private String comment,dateStr,userID;//我的评论
     private String [][]commentarr;
     private String courseJson;
@@ -59,6 +59,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         userID=MainActivity.userID;
         if(userID!=null){
             nullflag=1;
+            imageID=MainActivity.imageID;
         }
         //获取课程信息json
         Intent intent=getIntent();
@@ -206,7 +207,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         sp_myscore.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                score = pos;
+                score = 5-pos;
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -228,11 +229,13 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         switch (view.getId()) {
             case R.id.btn_collect:
                 if(nullflag==0){
-                    Toast.makeText(getApplicationContext(), "请先登录~", Toast.LENGTH_LONG).show();
-                    Log.e("测试","没有登录");
-
+                    Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+                    toast.setText("请先登录~");
+                    toast.show();
                 }else {
-                    Toast.makeText(getApplicationContext(), "收藏成功", Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+                    toast.setText("收藏成功~");
+                    toast.show();
                     rp.put("userID", userID);
                     rp.put("courseID", courseID);
                     AsyncUtil.get("/collectcourse", rp, new AsyncHttpResponseHandler() {
@@ -315,9 +318,13 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.btn_comment:
                 if(nullflag==0){
-                    Toast.makeText(getApplicationContext(), "请先登录~", Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+                    toast.setText("请先登录~");
+                    toast.show();
                 }else {
-                    Toast.makeText(getApplicationContext(), "评论成功", Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
+                    toast.setText("评论成功~");
+                    toast.show();
                     comment = et_mycomment.getText().toString();
                     Date date = new Date();
                     date.getTime();
@@ -399,11 +406,12 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             System.out.println("jsonArray长度："+jsonArray.length());
             for (int i=0; i < jsonArray.length(); i++)    {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+                System.out.println(jsonObject.toString());
                 commentarr[i][0]= jsonObject.getString("comment");
                 commentarr[i][1]= jsonObject.getString("date");
                 commentarr[i][2]= jsonObject.getString("nickname");
                 commentarr[i][3]= jsonObject.getString("score");
-                int ran = (int) (Math.random() * 6 + 1);
+                int ran = jsonObject.getInt("imageID");
                 courseCommentList[i].setData(ran, commentarr[i][3]+"分", commentarr[i][0], commentarr[i][1], commentarr[i][2]);
             }
         }
@@ -415,11 +423,50 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
     public void setNewCommentList(){
         //加载新的评论
-        int ran = (int) (Math.random() * 6 + 1);
+        int ran = imageID%7+1;
         CourseCommentList courseCommentList=new CourseCommentList(this);
         courseCommentList.setData(ran, score+"分", comment, dateStr, MainActivity.nickname);
         ll_courseCommentList.addView(courseCommentList);
         System.out.println("加载新的评论");
+    }
+
+    public void setNewScore(){
+        RequestParams rp=new RequestParams();
+        rp.put("type",type);
+        rp.put("keyword",name);
+        AsyncUtil.get("/searchcourse", rp, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String jsonString=new String(responseBody, StandardCharsets.UTF_8);
+                System.out.println("===========");
+                System.out.println("newSocreString:"+jsonString);
+                ScoreJSONObject(jsonString);
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Log.e("error",error.toString());
+            }
+        });
+    }
+
+    private void ScoreJSONObject(String JsonData) {
+        try {
+            JSONArray jsonArray=new JSONArray(JsonData);
+            System.out.println("jsonArray长度："+jsonArray.length());
+            for (int i=0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                if(teacher.equals(jsonObject.getString("teacher"))) {
+                    this.score = Integer.parseInt(jsonObject.getString("score"));
+                    tv_coursescore.setText(score + "分");
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private Handler handler = new Handler() {
@@ -428,6 +475,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             if (msg.what == 1) {
                 System.out.println("handler准备创建新的Commentlist");
                 setNewCommentList();
+                setNewScore();
             }
         }
     };
