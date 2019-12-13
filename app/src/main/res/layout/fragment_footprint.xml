@@ -22,12 +22,16 @@
             android:layout_height="wrap_content"
             android:text="我的参与"
             android:id="@+id/id_tab_participate"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp"
             />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的收藏"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp"
             android:id="@+id/id_tab_star"/>
 
     </com.google.android.material.tabs.TabLayout>

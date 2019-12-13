@@ -24,22 +24,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="@dimen/margin_small"
         android:layout_marginEnd="16dp"
-        android:fontFamily="@font/nunitosans_bold"
         android:text="@string/lessons_rec"
         android:textColor="@color/grey850"
         android:textSize="22sp" />
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="100dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/grey_transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/overviewTv" />
+
 
     <RadioGroup
         android:id="@+id/home_group"
@@ -59,7 +48,7 @@
             android:button="@null"
             android:gravity="center"
             android:text="最新"
-            android:textColor="@color/radiobutton_textcolor"
+            android:textColor="@color/dark_grey"
             android:textSize="20sp" />
 
         <RadioButton
@@ -72,7 +61,7 @@
             android:button="@null"
             android:gravity="center"
             android:text="最热"
-            android:textColor="@color/radiobutton_textcolor"
+            android:textColor="@color/dark_grey"
             android:textSize="20sp" />
 
         <RadioButton
@@ -85,7 +74,7 @@
             android:button="@null"
             android:gravity="center"
             android:text="评分最高"
-            android:textColor="@color/radiobutton_textcolor"
+            android:textColor="@color/dark_grey"
             android:textSize="20sp" />
     </RadioGroup>
 
@@ -94,10 +83,8 @@
         android:id="@+id/recommended_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_small"
         >
-
-
-
     </ListView>
 
 

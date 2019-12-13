@@ -25,6 +25,7 @@ import com.loopj.android.http.RequestParams;
 import com.scottmangiapane.courseevaluation.CourseDetailActivity;
 import com.scottmangiapane.courseevaluation.MainActivity;
 import com.scottmangiapane.courseevaluation.R;
+import com.scottmangiapane.courseevaluation.ToastUtil;
 import com.scottmangiapane.courseevaluation.ui.all_courses.AllCoursesFragment;
 import com.scottmangiapane.courseevaluation.AsyncUtil;
 
@@ -65,7 +66,9 @@ public class ParticipateFragment extends Fragment {
     private FootprintAdapter adapter;
 
     //从mainactivity 获取用户的id
-    private String userid;
+    private static String userid;
+
+    MainActivity mainActivity;
 
     //每次加载数据的条数
     private static int count=3;
@@ -74,14 +77,11 @@ public class ParticipateFragment extends Fragment {
     //是否刷新数据
     private static boolean isRefresh;
 
+    private static  FootprintFragment ftfragemnt;
     //未登录
-    public ParticipateFragment(){
 
-    }
     //已经登录，获取了用户的id
-    public ParticipateFragment(String userid){
-        this.userid=userid;
-    }
+
 
     @Nullable
     @Override
@@ -95,10 +95,14 @@ public class ParticipateFragment extends Fragment {
 
         context=this.getContext();//获取当前布局环境
 
+        //userid=MainActivity.userID;
+
+
         //刷新的Layout设置
         smartRefreshLayout = (SmartRefreshLayout) root.findViewById(R.id.refreshLayout);
         //设置 Footer 为 球脉冲 样式
         smartRefreshLayout.setRefreshFooter(new BallPulseFooter(context).setSpinnerStyle(SpinnerStyle.Scale));
+
         smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
@@ -131,33 +135,44 @@ public class ParticipateFragment extends Fragment {
     }
 
 
+
     public void getUserParticipate()
     {
 
         //获取用户登陆信息
-        String accountString=userid;
+        //userid=((FootprintFragment)(StarFragment.this.getParentFragment())).getUserid();
+        // String accountString=userid;
+        mainActivity = (MainActivity) getActivity();
+        userid = mainActivity.getUserid();
+
         System.out.println("用户id为:"+userid);
 
         //如果没有登录 直接显示空的页面
         if(userid==null) {
             emptyLayout.setEmptyMessage("您还没有登录(つ´ω`)つ喔");
             emptyLayout.showEmpty();
-
+            System.out.println("用户id为:"+userid);
         }
 
         else {
 
             RequestParams requestParams = new RequestParams();
-            requestParams.add("userID", accountString);
+            requestParams.add("userID", userid);
 
             adapter = new FootprintAdapter(getActivity(), datalist);
 
-            //刷新数据的时候先清空列表
-            if(isRefresh==true&&datalist.size()!=0) {
+
+            if(isRefresh==true){
                 datalist.clear();
                 startIndex=0;
                 System.out.println("*************刷新数据*****************");
             }
+            //刷新数据的时候先清空列表
+            //if(isRefresh==true&&datalist.size()!=0) {
+            //    datalist.clear();
+            //  startIndex=0;
+            // System.out.println("*************刷新数据*****************");
+            // }
             //加载数据不用清空列表
             else{
                 System.out.println("*************加载更多数据*****************");
@@ -229,9 +244,9 @@ public class ParticipateFragment extends Fragment {
 
                         //该用户没有数据
                         if(isRefresh&&datalist.size()==0){
-                            emptyLayout.setEmptyMessage("您还没有数据喔(￣ε(#￣)" );
-                            emptyLayout.showEmpty();//设置空页面
-
+                            //  emptyLayout.setEmptyMessage("您还没有数据喔(￣ε(#￣)" );
+                            //emptyLayout.showEmpty();//设置空页面
+                            adapter.notifyDataSetChanged();//调整刷新的数据
                         }
                         else {
                             adapter.notifyDataSetChanged();//调整刷新的数据
@@ -254,19 +269,17 @@ public class ParticipateFragment extends Fragment {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     System.out.println("获取参与数据失败！");
-                    //显示错误提示页面 --没有网络链接，错误等
+                    ToastUtil.showToast(getContext(),"(｡ŏ_ŏ)检查下你的网络啦",false);
                     emptyLayout.setErrorMessage("(｡ŏ_ŏ)检查下你的网络啦～");
                     emptyLayout.setErrorDrawable(R.drawable.network_error);
                     emptyLayout.showError();
-
-                    //尝试重新获取数据
                     emptyLayout.setErrorButtonClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
+                            //尝试重新获取数据
                         }
                     });
-
+                    //显示错误提示页面 --没有网络链接，错误等
                 }
             });
 

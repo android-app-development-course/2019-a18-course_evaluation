@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/margin_medium"
-    android:layout_marginTop="@dimen/margin_small"
-    android:layout_marginBottom="@dimen/margin_small"
-    android:layout_marginEnd="@dimen/margin_medium"
+
     android:visibility="visible"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp">
@@ -19,6 +16,10 @@
         <include
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/course_list"/>
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            layout="@layout/course_list2"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/cblogosplash"
+            android:src="@drawable/homecourse_logo_resize100"
             android:layout_margin="@dimen/margin_small"
 
             >
@@ -40,28 +40,31 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/homecourse_logo_resize100"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="center"
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="@string/login_welcome"
-        android:textColor="@color/salmon"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        >
+    </ImageView>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_small"
         >
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_margin="@dimen/margin_large"
             android:orientation="horizontal"
             >
 
@@ -84,7 +87,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_large"
             android:orientation="horizontal"
             >
 
@@ -108,13 +114,17 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small">
 
         <CheckBox
             android:id="@+id/checkbox"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp">
+            android:layout_marginStart="@dimen/margin_large">
         </CheckBox>
 
         <TextView
@@ -126,8 +136,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+            android:layout_marginStart="150dp"
             android:text="@string/password_forgot"
+
             android:textColor="@color/design_default_color_primary">
 
         </TextView>
@@ -136,8 +147,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/margin_large">
 
         <Button
             android:id="@+id/login_now"
@@ -145,6 +158,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_background"
             android:text="@string/login_now"
+            android:layout_marginStart="@dimen/margin_large"
             android:textColor="@color/white">
 
         </Button>
@@ -153,7 +167,7 @@
             android:id="@+id/skip"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="@dimen/margin_large"
             android:background="@drawable/button_background"
             android:text="@string/skip"
             android:textColor="@color/white">
@@ -165,8 +179,8 @@
         android:id="@+id/signup_now"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
         android:clickable="true"
         android:text="@string/signup_now"
         android:textColor="@color/design_default_color_primary">

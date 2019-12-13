@@ -43,7 +43,15 @@ public class AllCoursesFragment extends Fragment {
         list_view=root.findViewById(R.id.list_view);
 
 
-
+//        courseDetailBtn=root.findViewById(R.id.courseBtn1);
+//        courseDetailBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), CourseDetailActivity.class);
+//                getActivity().startActivity(intent);
+//            }
+//        });
 
         //获取全部课程
         CommonHttpUtil.requestNet(handler, URLProtocol.allcourses);
@@ -62,9 +70,6 @@ public class AllCoursesFragment extends Fragment {
                     //Toast.makeText(getActivity(), um.getName(), Toast.LENGTH_LONG).show();
                     CourseListAdapter adapter = new CourseListAdapter(getActivity(), R.layout.course_list_view_item, courseList);
                     list_view.setAdapter(adapter);
-
-
-
                 }
             } else {
                 Toast.makeText(getActivity(), "未获得数据，获取失败!", Toast.LENGTH_LONG).show();

@@ -45,6 +45,9 @@ public class MyInfoFragment extends Fragment {
         viewContent = inflater.inflate(R.layout.fragment_myinfo, container, false);
         mainActivity = (MainActivity) getActivity();
         userID = mainActivity.getUserid();
+
+        System.out.println("从个人信息获取mainactivity的userid");
+
         if (userID != null) {
             password = mainActivity.getPassword();
             nickname = mainActivity.getNickname();

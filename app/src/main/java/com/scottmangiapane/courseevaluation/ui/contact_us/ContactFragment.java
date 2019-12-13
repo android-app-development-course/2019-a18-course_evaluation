@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.scottmangiapane.courseevaluation.CourseDetailActivity;
 import com.scottmangiapane.courseevaluation.MainActivity;
 import com.scottmangiapane.courseevaluation.R;
+import com.scottmangiapane.courseevaluation.ToastUtil;
 
 import org.json.JSONObject;
 
@@ -47,19 +48,7 @@ public class ContactFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast toast = Toast.makeText(getContext(), "提交成功", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                ImageView imageView = new ImageView(getContext());
-                imageView.setImageResource(R.drawable.check_circle_fill);
-                LinearLayout toastView = (LinearLayout) toast.getView();//获得toast的布局
-                TextView messageTextView = (TextView) toastView.getChildAt(0);
-                messageTextView.setTextSize(25);
-                messageTextView.setGravity(Gravity.CENTER);
-                toastView.setOrientation(LinearLayout.VERTICAL);//横向布局
-                toastView.addView(imageView, 0);//将ImageView在加入到此布局中的第一个位置
-                toast.show();
-
-
+                ToastUtil.showToast(getContext(),"提交成功！",true);
                 //回到首页
                 Intent intent = new Intent(getContext(), MainActivity.class);
 

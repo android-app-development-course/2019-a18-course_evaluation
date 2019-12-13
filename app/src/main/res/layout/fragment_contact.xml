@@ -31,10 +31,9 @@
                 android:layout_marginEnd="16dp"
                 android:letterSpacing="0.25"
                 android:text="反馈"
-                android:fontFamily="@font/nunitosans_bold"
                 android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="22sp"
+                android:textColor="@color/dark_grey"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +51,6 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/nunitosans_bold"
                     android:hint="标题"
                     android:textSize="18sp" />
 
@@ -71,9 +69,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/nunitosans_bold"
                     android:gravity="top"
-                    android:hint="描述下你遇到的问题(･ω´･ )"
+                    android:hint="写下你遇到的问题或者建议吧(･ω´･ )"
                     android:minLines="4"
                     android:textSize="18sp"
                      />
@@ -90,7 +87,6 @@
                 android:layout_marginEnd="120dp"
                 android:layout_marginBottom="100dp"
                 android:background="@drawable/button_background"
-                android:fontFamily="@font/nunitosans_bold"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:shadowColor="#664cceff"
@@ -146,7 +142,7 @@
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

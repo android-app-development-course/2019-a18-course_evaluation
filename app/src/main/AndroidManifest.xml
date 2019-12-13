@@ -39,10 +39,10 @@
         <activity
             android:name=".CourseDetailActivity"
             android:label="@string/coursedetail"
-            android:parentActivityName=".MainActivity">
-        <meta-data
+            >
+        <!--meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.scottmangiapane.courseevaluation.MainActivity"/>
+            android:value="com.scottmangiapane.courseevaluation.MainActivity"/-->
             </activity>
         <activity
             android:name=".SearchActivity"

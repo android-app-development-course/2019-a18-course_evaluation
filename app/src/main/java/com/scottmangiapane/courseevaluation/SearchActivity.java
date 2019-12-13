@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -120,10 +121,10 @@ public class SearchActivity extends AppCompatActivity {
         fzskBtn=findViewById(R.id.fzskBtn);fzskBtn.setTag("3");
         fzskBtn.setOnClickListener(selectBtnListener);
 
-        zykBtn.setBackgroundColor(getResources().getColor(R.color.green));
-        ggkBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-        gxkBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-        fzskBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
+        zykBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
+        ggkBtn.setBackgroundColor(getResources().getColor(R.color.white));
+        gxkBtn.setBackgroundColor(getResources().getColor(R.color.white));
+        fzskBtn.setBackgroundColor(getResources().getColor(R.color.white));
 
         //获取全部课程
         CommonHttpUtil.requestNet(handler, URLProtocol.allcourses);
@@ -144,11 +145,11 @@ public class SearchActivity extends AppCompatActivity {
     View.OnClickListener selectBtnListener =new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            zykBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-            ggkBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-            gxkBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-            fzskBtn.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
-            v.setBackgroundColor(getResources().getColor(R.color.green));
+            zykBtn.setBackgroundColor(getResources().getColor(R.color.white));
+            ggkBtn.setBackgroundColor(getResources().getColor(R.color.white));
+            gxkBtn.setBackgroundColor(getResources().getColor(R.color.white));
+            fzskBtn.setBackgroundColor(getResources().getColor(R.color.white));
+            v.setBackgroundColor(getResources().getColor(R.color.grey_transparent));
             String tag=v.getTag().toString();
             type=tag;
             key=searchView.getQuery().toString();

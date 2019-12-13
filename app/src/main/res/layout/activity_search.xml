@@ -25,39 +25,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small">
 
         <Button
             android:id="@+id/zykBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="专业课" />
+            android:background="@drawable/radiobutton_bg"
+            android:text="专业课"
+
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/ggkBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="公共课" />
+            android:background="@drawable/radiobutton_bg"
+            android:text="公共课"
+
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/gxkBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="公选课" />
+            android:background="@drawable/radiobutton_bg"
+            android:text="公选课"
+
+            android:textSize="18sp"/>
 
         <Button
             android:id="@+id/fzskBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="非正式课" />
+            android:background="@drawable/radiobutton_bg"
+            android:text="非正式课"
+
+            android:textSize="18sp"/>
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin_medium">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,5 +85,6 @@
         android:id="@+id/list_view"
         >
     </ListView>
+    </LinearLayout>
 
 </LinearLayout>

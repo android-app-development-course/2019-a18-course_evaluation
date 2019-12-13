@@ -44,13 +44,18 @@ public class FootprintFragment extends Fragment {
 
     private int mode = TabLayout.MODE_FIXED;
 
-    private String userid;
+    public  static  String userid;
 
     public FootprintFragment() {
         // Required empty public constructor
     }
     //对应动态加载的viewmodel
     //private FootPrintViewModel footprintViewModel;
+
+
+    public  String getUserid(){
+        return this.userid;
+    }
 
     //对应的两个tab
     private LinearLayout mTabstar;
@@ -66,7 +71,7 @@ public class FootprintFragment extends Fragment {
 
     //获取floating bar from activity
 
-    private  FloatingActionButton fab;
+    //private  FloatingActionButton fab;
 
     /**********************footprint *************************************************/
 
@@ -76,9 +81,9 @@ public class FootprintFragment extends Fragment {
         viewContent = inflater.inflate(R.layout.fragment_footprint,container,false);
         initConentView(viewContent);
 
+            //获取userid
         mainActivity = (MainActivity) getActivity();
-
-
+        userid=mainActivity.getUserid();
 
 
         initData();
@@ -95,7 +100,8 @@ public class FootprintFragment extends Fragment {
 
 
         //if (((MainActivity) mainActivity).getUserid()==null){}
-        userid=mainActivity.getUserid();
+        //userid=mainActivity.getUserid();
+        userid=MainActivity.userID;
 
         System.out.println("在footprint获取的userid:"+userid);
 
@@ -105,12 +111,14 @@ public class FootprintFragment extends Fragment {
         List<Fragment> fragments = new ArrayList<Fragment>();
 
         if(userid!=null) {
-            fragments.add(new ParticipateFragment(userid));//传入userid
-            fragments.add(new StarFragment(userid));
+            fragments.add(new ParticipateFragment());//传入userid
+            fragments.add(new StarFragment());
+            System.out.println("用户存在 已经登录");
         }
         else{
             fragments.add(new ParticipateFragment());//传入userid
             fragments.add(new StarFragment());
+            System.out.println("用户不存在 没有登录");
         }
 
         //隐藏floating bar

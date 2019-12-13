@@ -30,29 +30,29 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_coursename"
-                    android:layout_width="270dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/white"
-                    android:textSize="25dp" />
+                    <TextView
+                        android:id="@+id/tv_coursename"
+                        android:layout_width="270dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="25dp" />
 
-                <Button
-                    android:id="@+id/btn_collect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/button_background"
-                    android:text="收藏"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:onClick="onClick"/>
+                    <Button
+                        android:id="@+id/btn_collect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/button_background"
+                        android:text="收藏"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:onClick="onClick"/>
 
                 </LinearLayout>
 
@@ -92,6 +92,40 @@
 
                     <TextView
                         android:id="@+id/tv_courseType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_academy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_divider">
+
+                    <ImageView
+                        android:id="@+id/iv_courseacademy"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/ic_academy" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="开设学院:"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/tv_courseAcademy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"

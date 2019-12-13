@@ -62,6 +62,7 @@
     <string name="department">开设学院</string>
     <string name="retry">刷新试试</string>
     <string name="go_homepage">前往首页</string>
+    <string name="comment_heat">热度</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

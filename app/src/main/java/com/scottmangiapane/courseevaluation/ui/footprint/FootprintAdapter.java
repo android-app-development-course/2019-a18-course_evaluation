@@ -94,8 +94,8 @@ public class FootprintAdapter extends BaseAdapter{
             courseItem.card=(CardView)convertView.findViewById(R.id.progressCard);
             courseItem.title=(TextView)convertView.findViewById(R.id.courseTitle);
             courseItem.detail_btn=(Button)convertView.findViewById(R.id.courseBtn1);
-            courseItem.desciption=(TextView)convertView.findViewById(R.id.courseRunDescription);
-            courseItem.academy=(TextView)convertView.findViewById(R.id.textView);
+            courseItem.desciption=(TextView)convertView.findViewById(R.id.courseDescription);
+            courseItem.academy=(TextView)convertView.findViewById(R.id.courseRunDescription);
             courseItem.teacher=(TextView)convertView.findViewById(R.id.courseInstructors);
             courseItem.ratingnumber=(TextView)convertView.findViewById(R.id.courseRatingTv);
 
