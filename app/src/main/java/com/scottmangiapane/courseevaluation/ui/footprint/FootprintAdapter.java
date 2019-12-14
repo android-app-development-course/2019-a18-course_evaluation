@@ -124,7 +124,7 @@ public class FootprintAdapter extends BaseAdapter{
 
         //评分星星与进度条设置
         courseItem.ratingbar.setRating(Float.valueOf(AverageRating));
-        courseItem.progressbar.setProgress(10*Integer.valueOf(CommentNum));
+        courseItem.progressbar.setProgress(6*Integer.valueOf(CommentNum));
 
         courseItem.progressbar.setMax(100);//设置进度条的最大值
 

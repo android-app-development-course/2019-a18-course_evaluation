@@ -83,7 +83,7 @@ public class CourseListAdapter extends ArrayAdapter<CourseModel> {
 
         //添加进度条设置
         ProgressBar progressbar=(ProgressBar)view.findViewById(R.id.courseProgress);
-        progressbar.setProgress(10*Integer.valueOf(course.getCom_num()));
+        progressbar.setProgress(6*Integer.valueOf(course.getCom_num()));
 
         progressbar.setMax(100);//设置进度条的最大值
 
