@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.scottmangiapane.courseevaluation.AsyncUtil;
+import com.scottmangiapane.courseevaluation.MainActivity;
 import com.scottmangiapane.courseevaluation.R;
 
 import org.json.JSONObject;
@@ -77,6 +78,7 @@ public class MyPasswordActivity extends AppCompatActivity implements View.OnClic
                 str = "修改成功";
                 imageView.setImageResource(R.drawable.check_circle_fill);
                 password=newpassword;
+                MainActivity.password=password;
                 RequestParams rp=new RequestParams();
                 rp.put("userID",userID);
                 rp.put("password",password);
