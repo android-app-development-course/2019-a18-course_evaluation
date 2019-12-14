@@ -153,8 +153,9 @@
         android:layout_marginBottom="@dimen/margin_large">
 
         <Button
+            android:layout_weight="1"
             android:id="@+id/login_now"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_background"
             android:text="@string/login_now"
@@ -164,8 +165,9 @@
         </Button>
 
         <Button
+            android:layout_weight="1"
             android:id="@+id/skip"
-            android:layout_width="150dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large"
             android:background="@drawable/button_background"

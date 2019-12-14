@@ -100,7 +100,7 @@ public class LoginFragment extends Fragment {
 
         LoginViewModel loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
         root=inflater.inflate(R.layout.fragment_login,container,false);
-        accountDialog=new MyDialog(getContext(),R.style.AccountDialog);
+
         //initialize the vars
         initView();
         //when account view clicked, show remembered accounts
@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
                 if(b){//用户点击了账号输入框，在输入框下方弹出账号记录框。
                     showAccountRecord();
                 }else{
-
+                    accountDialog.dismiss();
                 }
             }
         });
@@ -207,6 +207,9 @@ public class LoginFragment extends Fragment {
     }
 
     public void showAccountRecord(){
+        if(accountDialog!=null)
+            if(accountDialog.isShowing())accountDialog.dismiss();
+
         accountDialog=new MyDialog(getContext(),R.style.AccountDialog);
         accountDialog.setAccount(account);
         accountDialog.setPassword(password);

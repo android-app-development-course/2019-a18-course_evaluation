@@ -35,7 +35,7 @@
     <string name="nickname_default">输入昵称</string>
 
     <!--首页-->
-    <string name="search_lesson">🔍搜索课程</string>
+    <string name="search_lesson">搜索课程</string>
     <string name="lessons_rec">推荐课程</string>
 
     <string name="operating_system">操作系统</string>
