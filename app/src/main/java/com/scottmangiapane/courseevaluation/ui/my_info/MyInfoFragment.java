@@ -212,6 +212,9 @@ public class MyInfoFragment extends Fragment {
                         msg.what = 1;
                         handler.sendMessage(msg);
                     }
+                    if (MainActivity.password!=password){
+                        password=MainActivity.password;
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
