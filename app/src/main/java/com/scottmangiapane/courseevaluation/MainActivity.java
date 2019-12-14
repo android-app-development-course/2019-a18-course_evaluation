@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     /**==============zpp============**/
     public static String userID;
     public static String nickname;
+    public static String password;
     public static int imageID;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             userID=userModel.getUserID();
             nickname=userModel.getNickname();
             imageID=userModel.getImageID();
+            password=userModel.getPassword();
             getUserid();
 
             /**==============zpp============**/
