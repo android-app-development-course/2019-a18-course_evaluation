@@ -20,8 +20,6 @@
 
     <!--自己加入需要的style元素 可能需要引用一些drawable元素，先在drawable那里加入-->
 
-
-
     <style name="AppThemeMain" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

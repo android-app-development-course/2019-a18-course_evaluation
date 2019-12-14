@@ -10,7 +10,7 @@
         android:id="@+id/splash_logo"
         android:width="50dp"
         android:height="50dp"
-        android:drawable="@drawable/cblogo"
+        android:drawable="@drawable/homecourse_logo_resize100"
         android:gravity="center" />
 
 </layer-list>

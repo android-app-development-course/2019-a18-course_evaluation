@@ -9,5 +9,4 @@
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
 
     <!--自行加入参考项目中的drawable 元素-->
-
 </resources>

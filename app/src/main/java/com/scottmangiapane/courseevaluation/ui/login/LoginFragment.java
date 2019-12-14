@@ -98,7 +98,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        LoginViewModel loginViewModel = ViewModelProviders.of(this).get(LoginViewModel.class);
+
         root=inflater.inflate(R.layout.fragment_login,container,false);
 
         //initialize the vars

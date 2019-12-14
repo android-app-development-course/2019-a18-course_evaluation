@@ -22,7 +22,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.scottmangiapane.courseevaluation.ClassData.CourseModel;
 import com.scottmangiapane.courseevaluation.adapter.CourseListAdapter;
-import com.scottmangiapane.courseevaluation.ui.all_courses.AllCoursesViewModel;
+
 import com.scottmangiapane.courseevaluation.util.CheckUtils;
 import com.scottmangiapane.courseevaluation.util.net.CommonHttpUtil;
 import com.scottmangiapane.courseevaluation.util.net.URLProtocol;
@@ -45,7 +45,6 @@ public class SearchActivity extends AppCompatActivity {
     private Button gxkBtn;
     private Button fzskBtn;
 
-    private AllCoursesViewModel allCoursesViewModel;
     private ListView list_view;
     private List<CourseModel> courseList = new ArrayList<CourseModel>();
     private CourseListAdapter adapter;

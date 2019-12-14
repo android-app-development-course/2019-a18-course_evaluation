@@ -31,7 +31,6 @@ import java.util.List;
 
 public class AllCoursesFragment extends Fragment {
 
-    private AllCoursesViewModel allCoursesViewModel;
     private ListView list_view;
     private List<CourseModel> courseList = new ArrayList<CourseModel>();
 

@@ -49,8 +49,7 @@ public class FootprintFragment extends Fragment {
     public FootprintFragment() {
         // Required empty public constructor
     }
-    //对应动态加载的viewmodel
-    //private FootPrintViewModel footprintViewModel;
+
 
 
     public  String getUserid(){

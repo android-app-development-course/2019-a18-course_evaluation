@@ -32,7 +32,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class HomeFragment extends Fragment {
 
-    //    private HomeViewModel homeViewModel;
+
     private ListView course_listView;
     private List<List<CourseModel>>course_lists;
     private final String URL="/recommended?type=";
