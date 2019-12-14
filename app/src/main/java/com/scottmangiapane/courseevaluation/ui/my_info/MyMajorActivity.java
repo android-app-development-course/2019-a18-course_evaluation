@@ -96,9 +96,6 @@ public class MyMajorActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_sure) {
-            sp_myschool.setSelection(myschoolpos, true);
-            sp_mymajor.setSelection(mymajorpos, true);
-            //Toast.makeText(getApplicationContext(),"修改成功",Toast.LENGTH_LONG).show();
             Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
             toast.setText("修改成功");
             toast.setGravity(Gravity.CENTER, 0, 0);
@@ -113,16 +110,14 @@ public class MyMajorActivity extends AppCompatActivity implements View.OnClickLi
             toast.show();
 
             RequestParams rp=new RequestParams();
-            rp.put("majorID",majorID);
-            rp.put("schoolID",schoolID);
+            rp.put("majorID",mID);
+            rp.put("schoolID",sID);
             rp.put("userID",userID);
             AsyncUtil.get("/set/schoolandmajor", rp, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String jsonString=new String(responseBody, StandardCharsets.UTF_8);
-                    //Intent intent=new Intent(MyNameActivity.this, MyInfoFragment.getContext());
-                    //intent.putExtra("userJson",jsonString);
-                    //startActivity(intent);
+                    System.out.println("success");
                 }
 
                 @Override
@@ -151,7 +146,4 @@ public class MyMajorActivity extends AppCompatActivity implements View.OnClickLi
             e.printStackTrace();
         }
     }
-
-
-
 }
