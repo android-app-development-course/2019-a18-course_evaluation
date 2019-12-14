@@ -179,13 +179,15 @@ public class SearchActivity extends AppCompatActivity {
                 } else {
                     adapter.clear();
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(SearchActivity.this, "没找到符合条件的数据!", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showToast(SearchActivity.this,"没找到符合条件的数据!",false);
+                    //Toast.makeText(SearchActivity.this, "没找到符合条件的数据!", Toast.LENGTH_SHORT).show();
                 }
 
             } else {
                 adapter.clear();
                 adapter.notifyDataSetChanged();
-                Toast.makeText(SearchActivity.this, "没找到符合条件的数据!", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(SearchActivity.this,"没找到符合条件的数据!",false);
+                //Toast.makeText(SearchActivity.this, "没找到符合条件的数据!", Toast.LENGTH_SHORT).show();
             }
 
         }

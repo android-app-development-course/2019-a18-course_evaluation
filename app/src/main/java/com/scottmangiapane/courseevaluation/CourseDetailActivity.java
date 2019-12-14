@@ -229,10 +229,16 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         switch (view.getId()) {
             case R.id.btn_collect:
                 if(nullflag==0){
+
+                    System.out.println("没有登录！！！");
+
                     Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
                     toast.setText("请先登录~");
                     toast.show();
                 }else {
+
+                    System.out.println("已经登录！！！用户id"+userID);
+
                     Toast toast = Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_LONG);
                     toast.setText("收藏成功~");
                     toast.show();

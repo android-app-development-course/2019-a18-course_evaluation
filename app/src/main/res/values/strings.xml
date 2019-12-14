@@ -1,6 +1,6 @@
 <resources>
     <!--默认部分-->
-    <string name="app_name">CourseEvaluation</string>
+    <string name="app_name">课程点评</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>

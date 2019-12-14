@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private UserModel userModel;
 
     /**==============zpp============**/
-    public static String userID="";
-    public static String nickname="";
+    public static String userID;
+    public static String nickname;
     public static int imageID;
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
             else {
                 System.out.println("haven't login");
             }
-
             //userid fragment 处理
             userID=userModel.getUserID();
             nickname=userModel.getNickname();
@@ -108,20 +107,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        /***********HJY**********两个fragment获取user id************************/
-        //添加课程功能提示 不开放
         FloatingActionButton fab = findViewById(R.id.fab);
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.showToast(getApplicationContext(),"您还没有添加课程的权限噢",false);
+                ToastUtil.showToast(getApplicationContext(),"您还没有添加课程的权限噢!",false);
+
             }
         });
-
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -136,9 +129,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+
+
+
     }
-
-
+    //两个fragment获取user id
     public String getUserid()
     {
 
@@ -149,10 +144,6 @@ public class MainActivity extends AppCompatActivity {
         {
             return null;}
     }
-
-    /****************HJY*********************************/
-
-
 
     /**==============zpp============**/
     public String getPassword()
