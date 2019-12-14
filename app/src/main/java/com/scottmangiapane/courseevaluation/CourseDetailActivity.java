@@ -81,7 +81,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
         initView();
         initEvent();
-        initData();
+//        initData();
     }
 
     private void initView() {
@@ -140,6 +140,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 String jsonString=new String(responseBody, StandardCharsets.UTF_8);
                 //解析并加载进列表中
                 parseJSONWithJSONObject(jsonString);
+                initData();
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
@@ -219,7 +220,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     //加载评论
     private void initData() {
         for(int i=0;i<com_num;i++) {
-            ll_courseCommentList.addView(courseCommentList[i]);
+            if(!courseCommentList[i].isEmpty())
+                ll_courseCommentList.addView(courseCommentList[i]);
         }
     }
 
@@ -419,6 +421,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 commentarr[i][3]= jsonObject.getString("score");
                 int ran = jsonObject.getInt("imageID");
                 courseCommentList[i].setData(ran, commentarr[i][3]+"分", commentarr[i][0], commentarr[i][1], commentarr[i][2]);
+                courseCommentList[i].setEmpty(false);
             }
         }
         catch (Exception e)
