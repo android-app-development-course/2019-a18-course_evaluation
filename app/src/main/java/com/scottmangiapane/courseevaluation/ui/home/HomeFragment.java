@@ -2,7 +2,6 @@ package com.scottmangiapane.courseevaluation.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +13,11 @@ import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.alibaba.fastjson.JSONArray;
-import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.scottmangiapane.courseevaluation.AsyncUtil;
-import com.scottmangiapane.courseevaluation.ClassData.CourseModel;
+import com.scottmangiapane.courseevaluation.*;
+import com.scottmangiapane.courseevaluation.ClassData.*;
 import com.scottmangiapane.courseevaluation.CourseDetailActivity;
 import com.scottmangiapane.courseevaluation.R;
-import com.scottmangiapane.courseevaluation.SearchActivity;
-import com.scottmangiapane.courseevaluation.ToastUtil;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -43,6 +38,12 @@ public class HomeFragment extends Fragment {
     //Fll--搜索按钮
     private Button toSearchBtn ;
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initLists();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              final ViewGroup container, Bundle savedInstanceState) {
