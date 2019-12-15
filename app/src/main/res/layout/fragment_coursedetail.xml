@@ -19,7 +19,7 @@
                 android:id="@+id/ll_courseMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
                 android:background="@drawable/blue_gradient"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +32,9 @@
 
                     <TextView
                         android:id="@+id/tv_coursename"
-                        android:layout_width="270dp"
-                        android:layout_height="30dp"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="15dp"
                         android:textColor="@color/white"
@@ -44,9 +45,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginRight="20dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
+                        android:layout_marginBottom="1dp"
                         android:background="@drawable/button_background"
                         android:text="收藏"
                         android:textColor="#ffffff"
@@ -252,7 +254,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="20dp"
                     android:textColor="@color/colorAccent"
                     android:textSize="20sp" />
 
@@ -292,6 +294,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@+id/tv_divider2">
@@ -300,14 +303,15 @@
                         android:id="@+id/ll_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_opentest"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -316,7 +320,7 @@
 
                         <Button
                             android:id="@+id/btn_opentest1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -330,6 +334,7 @@
                         android:id="@+id/ll_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
@@ -337,7 +342,7 @@
 
                         <Button
                             android:id="@+id/btn_closetest"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -346,7 +351,7 @@
 
                         <Button
                             android:id="@+id/btn_closetest1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -360,6 +365,7 @@
                         android:id="@+id/ll_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
@@ -367,7 +373,7 @@
 
                         <Button
                             android:id="@+id/btn_smalltest"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -375,7 +381,7 @@
 
                         <Button
                             android:id="@+id/btn_smalltest1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -388,14 +394,16 @@
                         android:id="@+id/ll_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_questionpoints"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -403,7 +411,7 @@
 
                         <Button
                             android:id="@+id/btn_questionpoints1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -419,6 +427,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     app:layout_constraintTop_toBottomOf="@+id/tv_divider2">
@@ -427,14 +436,15 @@
                         android:id="@+id/ll_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_presentation"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -442,7 +452,7 @@
 
                         <Button
                             android:id="@+id/btn_presentation1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -457,12 +467,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_paper"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -470,7 +481,7 @@
 
                         <Button
                             android:id="@+id/btn_paper1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -485,12 +496,13 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_signin"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -498,7 +510,7 @@
 
                         <Button
                             android:id="@+id/btn_signin1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -511,14 +523,16 @@
                         android:id="@+id/ll_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/btn_others"
-                            android:layout_width="64dp"
+                            android:layout_width="match_parent"
                             android:layout_height="64dp"
                             android:background="@drawable/course_button_star"
                             android:textColor="@color/white"
@@ -526,7 +540,7 @@
 
                         <Button
                             android:id="@+id/btn_others1"
-                            android:layout_width="70dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:background="@null"
                             android:drawableLeft="@drawable/course_button_complete"
@@ -568,9 +582,10 @@
                     android:background="@color/colorPrimary" />
 
                 <LinearLayout
-                    android:layout_width="330dp"
-                    android:layout_height="200dp"
-                    android:layout_marginLeft="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/course_border"
                     android:orientation="vertical">
@@ -578,8 +593,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -601,15 +616,15 @@
                         android:id="@+id/tv_divider1"
                         android:layout_width="match_parent"
                         android:layout_height="1dip"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
                         android:background="@color/colorPrimary" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -623,9 +638,10 @@
 
                         <EditText
                             android:id="@+id/et_mycomment"
-                            android:layout_width="240dp"
-                            android:layout_height="90dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_marginTop="5dp"
+                            android:layout_marginRight="15dp"
                             android:background="@drawable/course_border"
                             android:gravity="top"/>
 
@@ -637,7 +653,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
                         android:background="@drawable/button_background"
                         android:text="评论"
                         android:textColor="#ffffff"
