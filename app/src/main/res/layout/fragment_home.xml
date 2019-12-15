@@ -26,7 +26,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/lessons_rec"
         android:textColor="@color/grey850"
-        android:textSize="22sp" />
+        android:textSize="@dimen/normal_text_18sp" />
 
 
 
@@ -49,7 +49,7 @@
             android:gravity="center"
             android:text="最新"
             android:textColor="@color/dark_grey"
-            android:textSize="20sp" />
+            android:textSize="@dimen/normal_text_15sp" />
 
         <RadioButton
 
@@ -62,7 +62,7 @@
             android:gravity="center"
             android:text="最热"
             android:textColor="@color/dark_grey"
-            android:textSize="20sp" />
+            android:textSize="@dimen/normal_text_15sp" />
 
         <RadioButton
 
@@ -75,9 +75,8 @@
             android:gravity="center"
             android:text="评分最高"
             android:textColor="@color/dark_grey"
-            android:textSize="20sp" />
+            android:textSize="@dimen/normal_text_15sp" />
     </RadioGroup>
-
 
     <ListView
         android:id="@+id/recommended_list"

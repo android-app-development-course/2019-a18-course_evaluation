@@ -33,7 +33,7 @@
             android:layout_marginBottom="3dp"
             android:text="@string/computer_network"
             android:textColor="@color/black"
-            android:textSize="24sp">
+            android:textSize="@dimen/normal_text_18sp">
 
         </TextView>
 

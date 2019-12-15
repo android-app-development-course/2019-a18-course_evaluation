@@ -5,7 +5,7 @@
     </uses-permission>
     <application
         android:allowBackup="true"
-        android:icon="@drawable/homecourse_logo1"
+        android:icon="@drawable/homecourse_logo_resize100"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

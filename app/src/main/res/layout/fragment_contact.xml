@@ -85,7 +85,7 @@
                 android:layout_marginStart="120dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="120dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="80dp"
                 android:background="@drawable/button_background"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
@@ -100,33 +100,19 @@
 
 
 
-            <TextView
-                android:id="@+id/mailTv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="@dimen/centre_container_s_vertical"
-                android:layout_marginEnd="16dp"
-                android:text=""
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/salmon"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/okBtn" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:background="#C6FF6666"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mailTv"
+                app:layout_constraintTop_toBottomOf="@+id/okBtn"
                 >
 
                 <TextView
