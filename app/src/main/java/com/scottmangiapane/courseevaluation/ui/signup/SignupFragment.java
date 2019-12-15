@@ -73,6 +73,7 @@ public class SignupFragment extends Fragment {
                         Intent intent=new Intent(getContext(), MainActivity.class);
                         intent.putExtra("userJson",jsonString);
                         startActivity(intent);
+                        getActivity().finish();
                     }
 
                     @Override

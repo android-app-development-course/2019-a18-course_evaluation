@@ -152,6 +152,7 @@ public class LoginFragment extends Fragment {
                         intent.putExtra("userJson",jsonString);
                         ToastUtil.showToast(getContext(),"登录成功",true);
                         startActivity(intent);
+                        getActivity().finish();
                     }
 
                     @Override
