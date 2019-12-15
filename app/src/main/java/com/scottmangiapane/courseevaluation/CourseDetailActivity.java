@@ -419,6 +419,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 commentarr[i][2]= jsonObject.getString("nickname");
                 commentarr[i][3]= jsonObject.getString("score");
                 int ran = jsonObject.getInt("imageID");
+                ran = ran % 7 + 1;
                 courseCommentList[i].setData(ran, commentarr[i][3]+"分", commentarr[i][0], commentarr[i][1], commentarr[i][2]);
             }
             return jsonArray.length();
