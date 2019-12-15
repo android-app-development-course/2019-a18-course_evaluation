@@ -399,7 +399,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             this.com_num = Integer.parseInt(jsonObject.getString("com_num"));
             this.score  = Integer.parseInt(jsonObject.getString("score"));
             this.type  = Integer.parseInt(jsonObject.getString("type"));
-            typestr =this.getResources().getStringArray(R.array.major)[type];
+            typestr =this.getResources().getStringArray(R.array.coursetype)[type];
         }
         catch (Exception e)
         {
