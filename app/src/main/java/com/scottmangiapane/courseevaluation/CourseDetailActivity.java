@@ -139,7 +139,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 String jsonString=new String(responseBody, StandardCharsets.UTF_8);
                 //解析并加载进列表中
-                parseJSONWithJSONObject(jsonString);
+                com_num=parseJSONWithJSONObject(jsonString);
                 initData();
             }
             @Override
@@ -220,7 +220,6 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     //加载评论
     private void initData() {
         for(int i=0;i<com_num;i++) {
-            if(!courseCommentList[i].isEmpty())
                 ll_courseCommentList.addView(courseCommentList[i]);
         }
     }
@@ -408,7 +407,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void parseJSONWithJSONObject(String JsonData) {
+    private int parseJSONWithJSONObject(String JsonData) {
         try {
             JSONArray jsonArray=new JSONArray(JsonData);
             System.out.println("jsonArray长度："+jsonArray.length());
@@ -421,13 +420,14 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 commentarr[i][3]= jsonObject.getString("score");
                 int ran = jsonObject.getInt("imageID");
                 courseCommentList[i].setData(ran, commentarr[i][3]+"分", commentarr[i][0], commentarr[i][1], commentarr[i][2]);
-                courseCommentList[i].setEmpty(false);
             }
+            return jsonArray.length();
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+        return 0;
     }
 
     public void setNewCommentList(){

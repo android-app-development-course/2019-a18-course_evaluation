@@ -16,22 +16,14 @@ public class CourseCommentList extends LinearLayout implements View.OnClickListe
     private TextView tv_username,tv_commentdate,tv_myscore,tv_mycomment;
     private Button btn_course_good,btn_course_bad;
     private Context context;
-    private boolean isEmpty;
 
-    public boolean isEmpty() {
-        return isEmpty;
-    }
 
-    public void setEmpty(boolean empty) {
-        isEmpty = empty;
-    }
 
     public CourseCommentList(Context context) {
         super(context);
         LayoutInflater.from(context).inflate(R.layout.course_comment_list,this);//第二个参数必须传this
         initView();
         initEvent();
-        setEmpty(true);
         this.context=context;
     }
 
