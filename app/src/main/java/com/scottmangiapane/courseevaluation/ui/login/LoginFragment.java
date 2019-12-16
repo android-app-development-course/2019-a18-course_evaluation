@@ -178,6 +178,7 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getContext(), MainActivity.class);
+                intent.putExtra("userJson","");
                 startActivity(intent);
             }
         });

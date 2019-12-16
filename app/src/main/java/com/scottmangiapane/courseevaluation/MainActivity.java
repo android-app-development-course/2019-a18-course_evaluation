@@ -87,23 +87,33 @@ public class MainActivity extends AppCompatActivity {
         userJson=intent.getStringExtra("userJson");
         if(userJson!=null){
             setUserModel(JSON.parseObject(userJson,UserModel.class));
-            if(getUserModel()!=null)
+            if(getUserModel()!=null) {
                 System.out.println(getUserModel().toString());
+                //userid fragment 处理
+                userID = userModel.getUserID();
+                nickname = userModel.getNickname();
+                imageID = userModel.getImageID();
+                password = userModel.getPassword();
+                getUserid();
+
+                /**==============zpp============**/
+                getPassword();
+                getNickname();
+                getImageID();
+                /**==============zpp============**/
+            }
             else {
                 System.out.println("haven't login");
-            }
-            //userid fragment 处理
-            userID=userModel.getUserID();
-            nickname=userModel.getNickname();
-            imageID=userModel.getImageID();
-            password=userModel.getPassword();
-            getUserid();
+                //userid fragment 处理
+                userID = null;
+                nickname = null;
+                imageID = 1;
+                password = null;
 
-            /**==============zpp============**/
-            getPassword();
-            getNickname();
-            getImageID();
-            /**==============zpp============**/
+
+
+            }
+
         }
 
         setContentView(R.layout.activity_main);
