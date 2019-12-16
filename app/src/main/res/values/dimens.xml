@@ -32,6 +32,7 @@
 
     <!--text size modify-->
     <dimen name="normal_text_15sp">15sp</dimen>
+    <dimen name="normal_text_16sp">16sp</dimen>
     <dimen name="normal_text_18sp">18sp</dimen>
     <dimen name="normal_text_20sp">20sp</dimen>
 </resources>

@@ -74,7 +74,7 @@
                     android:paddingLeft="20dp"
                     android:text="@string/my_major"
                     android:textColor="#666666"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/normal_text_18sp" />
 
                 <TextView
                     android:id="@+id/tv_divider2"
@@ -98,7 +98,7 @@
                     android:paddingLeft="20dp"
                     android:text="@string/my_name"
                     android:textColor="#666666"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/normal_text_18sp" />
 
                 <Button
                     android:id="@+id/bt_mypassword"
@@ -112,7 +112,7 @@
                     android:paddingLeft="20dp"
                     android:text="@string/my_password"
                     android:textColor="#666666"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/normal_text_18sp" />
 
                 <TextView
                     android:id="@+id/tv_divider3"
@@ -136,7 +136,7 @@
                     android:paddingLeft="20dp"
                     android:text="@string/my_setting"
                     android:textColor="#666666"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/normal_text_18sp" />
 
                 <Button
                     android:id="@+id/bt_about"
@@ -150,7 +150,7 @@
                     android:paddingLeft="20dp"
                     android:text="@string/my_about"
                     android:textColor="#666666"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/normal_text_18sp" />
 
             </LinearLayout>
 

@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="@string/search_lesson"
         android:textColor="@color/salmon"
-        android:textSize="22sp"
+        android:textSize="@dimen/normal_text_18sp"
         android:layout_margin="@dimen/margin_small"></Button>
 
     <TextView
@@ -49,7 +49,7 @@
             android:gravity="center"
             android:text="最新"
             android:textColor="@color/dark_grey"
-            android:textSize="@dimen/normal_text_15sp" />
+            android:textSize="@dimen/normal_text_18sp" />
 
         <RadioButton
 
@@ -62,7 +62,7 @@
             android:gravity="center"
             android:text="最热"
             android:textColor="@color/dark_grey"
-            android:textSize="@dimen/normal_text_15sp" />
+            android:textSize="@dimen/normal_text_18sp" />
 
         <RadioButton
 
@@ -75,7 +75,7 @@
             android:gravity="center"
             android:text="评分最高"
             android:textColor="@color/dark_grey"
-            android:textSize="@dimen/normal_text_15sp" />
+            android:textSize="@dimen/normal_text_18sp" />
     </RadioGroup>
 
     <ListView

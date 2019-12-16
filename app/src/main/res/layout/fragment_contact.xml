@@ -32,8 +32,8 @@
                 android:letterSpacing="0.25"
                 android:text="反馈"
                 android:textAlignment="center"
-                android:textColor="@color/dark_grey"
-                android:textSize="20sp"
+                android:textColor="@color/grey850"
+                android:textSize="@dimen/normal_text_20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
