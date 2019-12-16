@@ -29,13 +29,11 @@
         android:textSize="@dimen/normal_text_18sp" />
 
 
-
     <RadioGroup
         android:id="@+id/home_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_medium"
-        android:checkedButton="@id/newest_button"
         android:orientation="horizontal">
 
         <RadioButton
@@ -46,21 +44,9 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_bg"
             android:button="@null"
+            android:checked="false"
             android:gravity="center"
             android:text="最新"
-            android:textColor="@color/dark_grey"
-            android:textSize="@dimen/normal_text_18sp" />
-
-        <RadioButton
-
-            android:id="@+id/highest_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/radiobutton_bg"
-            android:button="@null"
-            android:gravity="center"
-            android:text="最热"
             android:textColor="@color/dark_grey"
             android:textSize="@dimen/normal_text_18sp" />
 
@@ -72,6 +58,21 @@
             android:layout_weight="1"
             android:background="@drawable/radiobutton_bg"
             android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="最热"
+            android:textColor="@color/dark_grey"
+            android:textSize="@dimen/normal_text_18sp" />
+
+        <RadioButton
+
+            android:id="@+id/highest_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/radiobutton_bg"
+            android:button="@null"
+            android:checked="false"
             android:gravity="center"
             android:text="评分最高"
             android:textColor="@color/dark_grey"

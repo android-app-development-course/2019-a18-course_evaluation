@@ -20,7 +20,9 @@ import com.scottmangiapane.courseevaluation.CourseDetailActivity;
 import com.scottmangiapane.courseevaluation.R;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import cz.msebera.android.httpclient.Header;
@@ -29,7 +31,7 @@ public class HomeFragment extends Fragment {
 
 
     private ListView course_listView;
-    private List<List<CourseModel>>course_lists;
+    private Map<Integer,List<CourseModel>> course_lists;
     private final String URL="/recommended?type=";
     private View root;
     private RecommendedAdapter recommendedAdapter;
@@ -50,6 +52,7 @@ public class HomeFragment extends Fragment {
 
         root = inflater.inflate(R.layout.fragment_home, container, false);
         course_listView=root.findViewById(R.id.recommended_list);
+        initLists();
         radioGroup=root.findViewById(R.id.home_group);
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -58,20 +61,23 @@ public class HomeFragment extends Fragment {
                 switch(checkedId){
                     case R.id.newest_button:
                         temp=course_lists.get(0);
-                        if (temp!=null)
-                            recommendedAdapter.setData(temp);
-                        else
-                            ToastUtil.showToast(getContext(),"数据加载失败",false);
-                        break;
-                    case R.id.highest_button:
-                        temp=course_lists.get(1);
+                        System.out.println("get 0");
                         if (temp!=null)
                             recommendedAdapter.setData(temp);
                         else
                             ToastUtil.showToast(getContext(),"数据加载失败",false);
                         break;
                     case R.id.most_button:
+                        temp=course_lists.get(1);
+                        System.out.println("get 1");
+                        if (temp!=null)
+                            recommendedAdapter.setData(temp);
+                        else
+                            ToastUtil.showToast(getContext(),"数据加载失败",false);
+                        break;
+                    case R.id.highest_button:
                         temp=course_lists.get(2);
+                        System.out.println("get 2");
                         if (temp!=null)
                             recommendedAdapter.setData(temp);
                         else
@@ -81,7 +87,7 @@ public class HomeFragment extends Fragment {
                 course_listView.setAdapter(recommendedAdapter);
             }
         });
-        initLists();
+
 
 
         /***************Fll 搜索界面跳转******************************/
@@ -99,19 +105,19 @@ public class HomeFragment extends Fragment {
     }
 
     public void initLists(){
-        course_lists=new Vector<>(3);
+        course_lists=new HashMap<>(3);
         recommendedAdapter=new RecommendedAdapter(getContext(),null,R.layout.recommended_item);
         for(int i=0;i<3;i++){
             String url=URL+i;
+            final int finalI = i;
             AsyncUtil.get(url , null, new AsyncHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String jsonString=new String(responseBody,StandardCharsets.UTF_8);
                     List<CourseModel>temp= (JSONArray.parseArray(jsonString,CourseModel.class));
-                    course_lists.add(temp);
-                    if(course_lists.size()==1){
-                        recommendedAdapter.setData(temp);
-                        course_listView.setAdapter(recommendedAdapter);
+                    course_lists.put(finalI,temp);
+                    if(course_lists.size()==3){
+                        radioGroup.check(R.id.newest_button);
                     }
                 }
 
